@@ -14,7 +14,7 @@ TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 # Gemini কনফিগারেশন
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash') # স্টেবল ভার্সন
+model = genai.GenerativeModel('gemini-1.5-flash-latest') # স্টেবল ভার্সন
 
 # ইউজার চ্যাট মেমরি
 chat_sessions = {}
@@ -56,4 +56,5 @@ if __name__ == '__main__':
     application.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
     
     print("বটটি রান হচ্ছে...")
+
     application.run_polling()
